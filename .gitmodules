@@ -1,0 +1,3 @@
+[submodule "anvil_extras"]
+	path = anvil_extras
+	url = https://github.com/anvilistas/anvil-extras
