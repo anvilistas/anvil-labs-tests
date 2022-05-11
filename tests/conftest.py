@@ -4,4 +4,4 @@ import pytest
 
 @pytest.fixture(scope="session", autouse=True)
 def anvil_connection():
-    anvil.server.connect("12345")
+    anvil.server.connect("client-uplink-key", url="ws://app:3030/_/uplink")
