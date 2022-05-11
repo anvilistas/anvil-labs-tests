@@ -38,4 +38,4 @@ jobs:
           context: .
           file: docker/app/Dockerfile
           push: true
-          tags: ${{ env.REGISTRY }}/app:latest
+          tags: ${{ env.REGISTRY }}/user/app:latest
