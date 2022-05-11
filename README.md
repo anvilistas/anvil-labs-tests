@@ -14,7 +14,15 @@ Note - you can instead install [Docker Desktop](https://docs.docker.com/desktop/
 * Copy the file 'env.example' to a new file named '.env'
 * Open '.env' with your preferred editor and replace the placeholder text with the path to your clone of the Anvil Labs repository.
 * Save the file
-* In your terminal, run 'docker compose up'
 
+## Running the Tests
+* Start the anvil app server
+```
+docker-compose up -d app
+```
 For the first run, this will take some time as it will download the necessary docker images to your machine.
 Subsequent runs will not need to do this.
+* Run the tests
+```
+docker-compose up test_runner
+```
