@@ -26,3 +26,7 @@ Subsequent runs will not need to do this.
 ```
 docker-compose up test_runner
 ```
+* Stop the anvil app server
+```
+docker-compose down
+```
