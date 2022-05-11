@@ -1,6 +1,6 @@
 app: /app
 data-dir: /anvil_data
-uplink-key: 12345
+client-uplink-key: 12345
 auto-migrate: true
 dep-id:
   anvil_extras: anvil_extras
