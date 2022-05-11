@@ -33,6 +33,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./docker/app/Dockerfile
+          file: "{{defaultContext}}/docker/app/Dockerfile"
           push: true
           tags: user/app:latest
