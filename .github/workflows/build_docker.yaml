@@ -16,6 +16,9 @@ jobs:
 
     steps:
       -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       -
@@ -33,6 +36,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: "{{defaultContext}}/docker/app/Dockerfile"
+          file: docker/app/Dockerfile
           push: true
           tags: user/app:latest
