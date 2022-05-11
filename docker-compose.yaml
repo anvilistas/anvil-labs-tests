@@ -26,4 +26,4 @@ services:
         condition: service_healthy
     volumes:
       - ./tests:/code/tests
-    command: python -m pytest --ignore=anvil_extras
+    command: python -m pytest
