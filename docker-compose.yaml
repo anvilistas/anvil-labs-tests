@@ -4,10 +4,10 @@ volumes:
   anvil_data:
 
 services:
-  anvil:
+  app:
     environment:
       - ANVIL_LABS_PATH=${ANVIL_LABS_PATH}
-    image: ghcr.io/anvilistas/anvil-labs-integration-tests:latest
+    image: ghcr.io/anvilistas/anvil-labs-integration-tests/app:latest
     ports:
       - 3030:3030
     volumes:
@@ -19,3 +19,11 @@ services:
       interval: 20s
       timeout: 10s
       retries: 5
+  test_runner:
+    image: ghcr.io/anvilistas/anvil-labs-integration-tests/test_runner:latest
+    depends_on:
+      app:
+        condition: service_healthy
+    volumes:
+      - ./tests:/tests
+    command: python -m pytest --ignore=anvil_extras
