@@ -9,7 +9,7 @@ services:
       - ANVIL_LABS_PATH=${ANVIL_LABS_PATH}
     build:
       context: .
-      dockerfile: docker/Dockerfile-app
+      dockerfile: docker/app/Dockerfile
       network: host
     ports:
       - 3030:3030
