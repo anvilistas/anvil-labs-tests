@@ -11,7 +11,7 @@ services:
     volumes:
       - ./anvil_extras:/anvil_extras
       - ${ANVIL_LABS_PATH}:/anvil_labs
-    command: anvil-app-server --config-file anvil-config.yaml
+    command: anvil-app-server --config-file config.yaml
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:3030 || exit 1"]
       interval: 20s
