@@ -14,11 +14,12 @@ RUN apt-get -yyy update && apt-get -yyy install java-1.8.0-amazon-corretto-jdk g
 
 RUN mkdir /anvil_data
 
-COPY docker/app/requirements.txt docker/app/config.yaml ./
+COPY docker/app/requirements.txt ./
 RUN pip install -r requirements.txt
 RUN anvil-app-server || true
 
 COPY app /app
+COPY docker/app/config.yaml /app
 WORKDIR /app
 
 RUN useradd anvil && chown -R anvil:anvil /anvil_data
