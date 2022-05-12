@@ -7,12 +7,12 @@ APP_URL = "ws://app:3030/_/uplink"
 
 @pytest.fixture
 def client_uplink():
-    anvil.server.connect("client-uplink-key", url=APP_URL)
+    anvil.server.connect("client-uplink-key", url=APP_URL, quiet=True)
 
 
 @pytest.fixture
 def uplink():
-    anvil.server.connect("uplink-key", url=APP_URL)
+    anvil.server.connect("uplink-key", url=APP_URL, quiet=True)
 
 
 @pytest.fixture

@@ -5,4 +5,5 @@ RUN pip install -r requirements.txt
 RUN anvil-app-server || true
 
 RUN mkdir /code
-WORKDIR code
+COPY docker/test_runner/pyproject.toml /code
+WORKDIR /code
