@@ -47,5 +47,5 @@ As we update this repo, the images you have downloaded for the containers will b
 of date. To fetch the latest images:
 ```
 docker-compose pull
-``
+```
 
