@@ -1,21 +1,39 @@
 version: "3"
 
 volumes:
-  anvil_data:
+  postgres:
 
 services:
+  db:
+    image: postgres
+    ports: 
+      - "5432:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=anvil
+      - POSTGRES_DB=anvil
+      - POSTGRES_PASSWORD=anvil
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U anvil"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   app:
     environment:
       - ANVIL_LABS_PATH=${ANVIL_LABS_PATH}
     image: ghcr.io/anvilistas/anvil-labs-integration-tests/app:latest
+    depends_on:
+      db:
+        condition: service_healthy
     volumes:
       - ./anvil_extras:/anvil_extras
       - ${ANVIL_LABS_PATH}:/anvil_labs
     command: anvil-app-server --config-file config.yaml
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:3030 || exit 1"]
-      interval: 20s
-      timeout: 10s
+      interval: 10s
+      timeout: 5s
       retries: 5
   test_runner:
     image: ghcr.io/anvilistas/anvil-labs-integration-tests/test_runner:latest
