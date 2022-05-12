@@ -26,6 +26,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    ports: 
+      - "3030:3030"
     volumes:
       - ./anvil_extras:/anvil_extras
       - ${ANVIL_LABS_PATH}:/anvil_labs
